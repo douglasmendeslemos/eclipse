@@ -1,11 +1,14 @@
 package Entidades;
 
+import java.util.Scanner;
+
 public class GuessGame {
 	
 	private int number;
 	
 	private int guess;
 	
+	Scanner sc = new Scanner(System.in);
 	//ENCAPSULAMENTO
 	
 	public void setNumber(int number) {
@@ -24,22 +27,21 @@ public class GuessGame {
 		return guess;
 	}
 	
-	// gerar um numero aleatório
-	
+	// gerando um numero aleatório
 	public int numRandom() {
-		setNumber((int)(Math.random() * 11));
+		setNumber((int)(Math.random() * 10));
+		//passando o numero double para int e multi
 		return getNumber();
 	}
 	
-	//Permitir que o player faça palpites
-	/*CONSTRUTOR
-	public GuessGame(int guess) {
-		setGuess(guess);
+	//verificar se o numero está dentro do intervalo
+	public void numInConjunt (int number) {
+	    	if( number < 0 || number > 10) {
+	    		System.out.print("digite um numero entre 0 e 10:");
+	    		numInConjunt(sc.nextInt());
+	    	} else
+	    		setGuess(number);
 	}
-	//CONSTRUTOR PADRÃO
-	public GuessGame() {
-		
-	}*/
 	
 	//Informar seo numero está correto ( maior ou menor )
 	public void comparation() {
@@ -51,6 +53,16 @@ public class GuessGame {
 			System.out.println("O numero informado eh menor do que eu estou pensando");
 			System.out.print("Tente novamente:");
 		}
+		
+		//Permitir que o player faça palpites
+		/*CONSTRUTOR
+		public GuessGame(int guess) {
+			setGuess(guess);
+		}
+		//CONSTRUTOR PADRÃO
+		public GuessGame() {
+			
+		}*/
 	}
 	
 }
