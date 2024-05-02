@@ -1,9 +1,12 @@
 package Entidades;
 
+import java.util.Scanner;
+
 public class metodosVetores {
 	private int quantidade_Numeros;
 	private int mediaDosItens;
 	private int somatorio;
+	private int[] array; 
 	
 	//Encapsulamentos.
 	public int getMediaDosItens() {
@@ -16,7 +19,7 @@ public class metodosVetores {
 		return somatorio;
 	}
 	public void setSomatorio(int somatorio) {
-		this.somatorio =+ somatorio; //ATENÇÃO**
+		this.somatorio += somatorio; //ATENÇÃO**
 	}
 	public int getQuantidade_Numeros() {
 		return quantidade_Numeros;
@@ -33,14 +36,33 @@ public class metodosVetores {
 			}
 		}
 	}
+	//Leitura dos numeros e quantidade do vetor.
+	public void redingNumber() {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Quantos numeros pretende digitar?");
+		setQuantidade_Numeros(scan.nextInt());
+		this.array = new int[getQuantidade_Numeros()];
+		//passando a qtd de numeros via encapsulamento.
+		for (int i = 0; i < getQuantidade_Numeros(); i++) {
+			System.out.print("Digite um numero:");
+			this.array[i] = scan.nextInt();
+			setSomatorio(this.array[i]);
+		}
+		setMediaDosItens((getSomatorio()/getQuantidade_Numeros()));
+		//aqui é realizado a media = somatorio dividido pela qtd de Itens.
+		scan.close();
+	}
+	
+	
 	/*Imprimir todos os elementos do vetor
 	Mostrar na tela a soma(ATENÇÃO**) e a média dos elementos do vetor */
 	public void imprimirVetor(int[] vetor) {
+		System.out.print("VALORES : ");
 		for (int i = 0; i < getQuantidade_Numeros(); i++) {
-			setSomatorio(vetor[i]);
-			System.out.println(vetor[i]);
+			
+			System.out.print(vetor[i] + " ");
 		}
-		setMediaDosItens((getSomatorio()/getQuantidade_Numeros()));//aqui é realizado a media = somatorio dividido pela qtd de Itens.
+		
 	}
 	
 	
