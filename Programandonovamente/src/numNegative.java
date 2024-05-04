@@ -5,11 +5,11 @@ public class numNegative {
 		
 		metodosVetores metodos = new metodosVetores();
 		
-		metodos.redingNumber();
-		System.out.println("\nSOMA = " + metodos.getSomatorio());
-		System.out.println("MEDIA = " + metodos.getMediaDosItens());
+		metodos.askQtdNumbers();
 		
-		//metodos.numNegative(array);
+		metodos.redingNumber();
+		
+		metodos.numberEvenLow();
 		
 	}
 	
