@@ -3,7 +3,7 @@ package Entidades;
 import java.util.Scanner;
 
 public class metodosVetores {
-	private int quantidade_Numeros;
+	protected int quantidade_Numeros;
 	private double mediaArray;
 	private int somatorio;	
 	private Scanner scan;//criando uma variavel scanner.
@@ -33,7 +33,7 @@ public class metodosVetores {
 	//Leitura do tamanho do vetor.
 	public void askQtdNumbers() {
         scan = new Scanner(System.in);//inicialização da variavel scanner.
-        System.out.print("Quantos números pretende digitar? ");
+        System.out.print("Quantos números informação pretende digitar? ");
         int quantidade = scan.nextInt();
         setQuantidade_Numeros(quantidade);
     }
@@ -150,7 +150,6 @@ public class metodosVetores {
 		}
 		this.array = this.arrayB.clone();
 		setSomatorio();
-		
 		if(var == 0)
 			System.out.print("Nenhum Numero Par!");
 		else {

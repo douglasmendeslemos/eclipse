@@ -1,15 +1,13 @@
-import Entidades.metodosVetores;
+//import Entidades.metodosVetores;
+import Entidades.realsProblems;
 
 public class numNegative {
 	public static void main(String[] args) {
 		
-		metodosVetores metodos = new metodosVetores();
 		
-		metodos.askQtdNumbers();
+		realsProblems met = new realsProblems();
 		
-		metodos.redingNumber();
-		
-		metodos.numberEvenLow();
+		met.problemTall();
 		
 	}
 	
