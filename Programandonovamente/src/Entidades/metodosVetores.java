@@ -140,22 +140,24 @@ public class metodosVetores {
 	//calcular a media dos valores pares do vetor
 	//verificar os numeros que estão abaixo da media.
 	public void numberEvenLow() {
-		int var = 0, var2 = 0;
+		int var = 0; //variavel para verificar quantidade de numeros existe no array
 		this.arrayB = new int[getQuantidade_Numeros()];
 		for (int i = 0; i < getQuantidade_Numeros(); i++) {
 			if(this.array[i] % 2 == 0) {
-				this.arrayB[var] = this.array[i]; //VERIFICAR PROBLEMATICA DO TAMANHO DO ARRAY.
+				this.arrayB[var] = this.array[i]; 
 				var++;
-				var2 = i;
 			}
 		}
 		this.array = this.arrayB.clone();
 		setSomatorio();
-		setMediaArray( getSomatorio() / this.array.length );
-		if(var == 0 && var2 == getQuantidade_Numeros()-1 )
-			System.out.print("\nNão tem Numeros Pares!");
-		else
-			System.out.println("Media dos numeros pares: "+ getMediaArray() +"tamanho " + this.array.length);
+		
+		if(var == 0)
+			System.out.print("Nenhum Numero Par!");
+		else {
+			setMediaArray( getSomatorio() / var );//divisão da soma dos numeros pares pela qtd de numeros pares.
+			System.out.println("Media dos numeros pares: "+ getMediaArray());
+		}
+			
 	}
 	
 	
