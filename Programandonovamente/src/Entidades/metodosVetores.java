@@ -3,7 +3,7 @@ package Entidades;
 import java.util.Scanner;
 
 public class metodosVetores {
-	protected int quantidade_Numeros;
+	protected double quantidade_Numeros;
 	private double mediaArray;
 	private int somatorio;	
 	private Scanner scan;//criando uma variavel scanner.
@@ -24,22 +24,24 @@ public class metodosVetores {
 	public void setSomatorio(int somatorio) {
 		this.somatorio = somatorio;
 	}
-	public int getQuantidade_Numeros() {
+	public double getQuantidade_Numeros() {
 		return quantidade_Numeros;
 	}
-	public void setQuantidade_Numeros(int number) {
+	public void setQuantidade_Numeros(double number) {
 		this.quantidade_Numeros = number;
 	}
+	
+	
 	//Leitura do tamanho do vetor.
 	public void askQtdNumbers() {
         scan = new Scanner(System.in);//inicialização da variavel scanner.
         System.out.print("Quantos números informação pretende digitar? ");
-        int quantidade = scan.nextInt();
+        double quantidade = scan.nextInt();
         setQuantidade_Numeros(quantidade);
     }
 	//Leitura dos numeros.
 	public void redingNumber() {
-        array = new int[getQuantidade_Numeros()];
+        array = new int[ (int)getQuantidade_Numeros()];
         for (int i = 0; i < getQuantidade_Numeros(); i++) {
             System.out.print("Digite um número: ");
             array[i] = scan.nextInt();
@@ -62,17 +64,33 @@ public class metodosVetores {
 		}
 	}
 	//realiza o somatorio do vetor
-	public void setSomatorio() {
+	//Alterando a função para receber um vetor. double e int
+	public int functionSomatorio(double[] vetor) {
 		int var = 0;
 		for (int i = 0; i < getQuantidade_Numeros(); i++) {
-			var += this.array[i];
+			var += vetor[i];
 		}
 		setSomatorio(var);
+		return getSomatorio();
+	}
+	public int functionSomatorio(int[] vetor) {
+		int var = 0;
+		for (int i = 0; i < getQuantidade_Numeros(); i++) {
+			var += vetor[i];
+		}
+		setSomatorio(var);
+		return getSomatorio();
 	}
 	//media dos valores do vetor.
-	public void setMediaArray() {
-		double var = getSomatorio() / getQuantidade_Numeros();
+	public double calcMediaArray(int[] vetor) {
+		double var =	(functionSomatorio(vetor) / getQuantidade_Numeros());
 		setMediaArray(var);
+		return getMediaArray();
+	}
+	public double calcMediaArray(double [] vetor) {
+		double var =	(functionSomatorio(vetor) / getQuantidade_Numeros());
+		setMediaArray(var);
+		return getMediaArray();
 	}
 	//verificar os numeros pares, imprimir e infomar quantos numeros pares tem.
 	public void numbersEvens() {
@@ -126,8 +144,8 @@ public class metodosVetores {
 	//calcular a media dos valores do vetor
 	//verificar os numeros abaixo da media
 	public void numberMediaLow() {
-		setSomatorio();
-		setMediaArray();
+		//functionSomatorio(this.array); 
+		calcMediaArray(this.array);
 		System.out.println("Media do Vetor: "+getMediaArray());
 		System.out.print("Valores abaixo da media: ");
 		for (int i = 0; i < array.length; i++) {
@@ -141,7 +159,7 @@ public class metodosVetores {
 	//verificar os numeros que estão abaixo da media.
 	public void numberEvenLow() {
 		int var = 0; //variavel para verificar quantidade de numeros existe no array
-		this.arrayB = new int[getQuantidade_Numeros()];
+		this.arrayB = new int[(int)getQuantidade_Numeros()];
 		for (int i = 0; i < getQuantidade_Numeros(); i++) {
 			if(this.array[i] % 2 == 0) {
 				this.arrayB[var] = this.array[i]; 
@@ -149,7 +167,7 @@ public class metodosVetores {
 			}
 		}
 		this.array = this.arrayB.clone();
-		setSomatorio();
+		//functionSomatorio(this.array);
 		if(var == 0)
 			System.out.print("Nenhum Numero Par!");
 		else {

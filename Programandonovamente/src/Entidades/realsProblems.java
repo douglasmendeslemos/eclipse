@@ -31,26 +31,40 @@ public class realsProblems {
 	
 	private Scanner scan;
 	private String[] namePerson;
-	private int[] yearOld;
+	private int[] yearsOld;
 	private double[] tallOfPerson;
 	
 	public void problemTall() {
 		vet.askQtdNumbers();
 		redingInfo();
+		vet.functionSomatorio(tallOfPerson);
+		vet.calcMediaArray(tallOfPerson);
+		System.out.println("Media da altura das pessoas: " + vet.getMediaArray());
+		System.out.println("Porcentagem das pessoas <16: " + percentYearsOld());
+	}
+	public double percentYearsOld() {
+		int var = 0;
+		for (int i = 0; i < this.yearsOld.length; i++) {
+			if(this.yearsOld[i] < 16) {
+				var++;
+			}
+		}
+		double qtd = var*100/(double) this.yearsOld.length;
+		return qtd;
 	}
 	
 	public void redingInfo() {
 		scan = new Scanner(System.in);
 		
-		this.namePerson = new String[vet.getQuantidade_Numeros()];
-		this.yearOld = new int[vet.getQuantidade_Numeros()];
-		this.tallOfPerson = new double[vet.getQuantidade_Numeros()];
+		this.namePerson = new String[(int )vet.getQuantidade_Numeros()];
+		this.yearsOld = new int[(int) vet.getQuantidade_Numeros()];
+		this.tallOfPerson = new double[ (int)vet.getQuantidade_Numeros()];
 		
         for (int i = 0; i < vet.getQuantidade_Numeros(); i++) {
             System.out.print("Digite o nome da " +(i+1)+ "º pessoa:");
 			namePerson[i]= scan.next(); //verificar por que na segunda rodada do vertor o array não lê
 			System.out.print("Informe a idade:");
-			yearOld[i] = scan.nextInt();
+			yearsOld[i] = scan.nextInt();
 			System.out.print("Informe a Altura: ");
 			tallOfPerson[i] = scan.nextDouble();
 			

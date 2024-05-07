@@ -1,13 +1,19 @@
-//import Entidades.metodosVetores;
+import Entidades.metodosVetores;
 import Entidades.realsProblems;
 
 public class numNegative {
 	public static void main(String[] args) {
 		
+		metodosVetores meth = new metodosVetores();
+		//realsProblems met = new realsProblems();
 		
-		realsProblems met = new realsProblems();
 		
-		met.problemTall();
+		meth.askQtdNumbers();
+		meth.redingNumber();
+		meth.numberMediaLow();
+		
+		
+		/*met.problemTall();*/
 		
 	}
 	
