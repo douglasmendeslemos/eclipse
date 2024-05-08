@@ -40,17 +40,21 @@ public class realsProblems {
 		vet.functionSomatorio(tallOfPerson);
 		vet.calcMediaArray(tallOfPerson);
 		System.out.println("Media da altura das pessoas: " + vet.getMediaArray());
-		System.out.println("Porcentagem das pessoas <16: " + percentYearsOld());
+		percentYearsOld();
 	}
-	public double percentYearsOld() {
+	
+	public void percentYearsOld() {
 		int var = 0;
+		String[] array = new String[(int) vet.getQuantidade_Numeros()];
 		for (int i = 0; i < this.yearsOld.length; i++) {
 			if(this.yearsOld[i] < 16) {
+				array[var] = this.namePerson[i];
 				var++;
 			}
 		}
-		double qtd = var*100/(double) this.yearsOld.length;
-		return qtd;
+		double percent = var*100/(double) this.yearsOld.length;
+		System.out.println("Porcentagem das pessoas < 16: " + percent);
+		vet.printArray(array);
 	}
 	
 	public void redingInfo() {

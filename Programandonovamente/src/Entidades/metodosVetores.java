@@ -57,10 +57,16 @@ public class metodosVetores {
 		}
 	}
 	//Imprime todos os elementos do vetor
-	public void printArray() {
+	public void printArray(String[] vetor) {
 		System.out.print("VALORES : ");
 		for (int i = 0; i < getQuantidade_Numeros(); i++) {
-			System.out.print(this.array[i] + " ");
+			System.out.print(vetor[i] + " ");
+		}
+	}
+	public void printArray(int[] vetor) {
+		System.out.print("VALORES : ");
+		for (int i = 0; i < getQuantidade_Numeros(); i++) {
+			System.out.print(vetor[i] + " ");
 		}
 	}
 	//realiza o somatorio do vetor
@@ -138,7 +144,7 @@ public class metodosVetores {
 		for (int i = 0; i < getQuantidade_Numeros(); i++) {
 			array[i] = arrayB[i] + arrayC[i];
 		}
-		printArray();
+		printArray(array);
 		scan.close();//fechamento do scanner
 	}
 	//calcular a media dos valores do vetor
